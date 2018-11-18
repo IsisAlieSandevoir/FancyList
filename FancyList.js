@@ -3,99 +3,104 @@
  * @company Odicci London
  * @date 14-11-2018
  *
+ * This document contains the class/ the object fancyList and his functions and parameters
  */
 
-var fancyList =  {
+class fancyList  {
 
-    method1 : function constructor() {
-        this.fancyList = new Int8Array();
+    constructor() {
+        this.fancyList = [1, 2, 3];
+        //TODO: problem: find a way to create the list by the user
+        //this.fancyList = new Int8Array();
         console.log("constructeur sans argument");
-    },
-    method2 : function constructor(item) {
+    }
+
+    //TODO: find a way to have 4 different constructor with the same name
+    constructor2(item) {
         constructor();
         this.fancyList.push(item);
         console.log("constructeur 1 argument");
-    },
-    method3 : function constructor(item1, item2){
+    }
+    constructor3(...items) {
         constructor();
-        this.fancyList.push(item1);
-        this.fancyList.push(item2);
-        console.log("constructeur 2 argument");
-    },
-    method4 : function constructor([item1, item2]){
+        this.fancyList.push(...items);
+        console.log("constructeur plusieurs arguments");
+    }
+    constructor4([...items]) {
         constructor();
-        this.fancyList.concat([item1, item2]);
+        this.fancyList.concat([...items]);
         console.log("constructeur à partir d'un tableau");
-    },
+    }
 
-    method5 : function getItemAt(index) {
+    getItemAt(index) {
         console.log("passage methode getItemAt");
         console.log(this.fancyList[this.fancyList.length - 1]);
-    },
+    }
 
-    method6 : function getItemAt(index, numberOfItems) {
+    getItemAt(index, numberOfItems) {
         console.log("passage methode getItemAt 2 args");
         this.fancyList.forEach(function(item, index, numberOfItems) {
             console.log(item, index);
         });
-    },
+    }
 
-    method7 : function addItem(item) {
+    addItem(item) {
         console.log("passage methode addItem");
         console.log(this.fancyList);
         this.fancyList.push(item);
         console.log(this.fancyList);
-    },
+    }
 
-    method8 : function addItems(...items) {
+    addItems(...items) {
         console.log("passage methode addItems");
         items.forEach(function(item, items){
             addItem(index,item);
         })
-    },
+    }
 
-    method9 : function addItems([...items]) {
+    addItems([...items]) {
         console.log("passage methode addItems Tab en args");
-    },
+    }
 
     /**
-     * Ici, on décalle dans un premier temps vers la droite du tableau
+     * Ici, on décale dans un premier temps vers la droite du tableau
      * les nombres en partant de la fin puis on ajoute l'élément
      * dans la case libérée
      */
-    method10 : function insertItemAt(index, itemToInsert) {
+    insertItemAt(index, itemToInsert) {
         console.log("passage methode insertItemAt");
         this.fancyList.forEach(function(item, fancyList, index) {
             this.fancyList[fancyList+1] =  this.fancyList[fancyList];
         })
         this.fancyList[index] = itemToInsert;
-    },
+        console.log(this.fancyList);
+    }
 
-    method11 : function insertItemsAt(index, ...items) {
+    insertItemsAt(index, ...items) {
         console.log("passage methode insertItemAt 2args");
         items.forEach(function(item, items){
             insertItemAt(index,item);
         })
-    },
+    }
 
-    method12 : function insertItemsAt(index, [...items]) {
+    insertItemsAt(index, [...items]) {
         console.log("passage methode insertItemAt tab");
-    },
+    }
 
-    method13 : function removeItemAt(index) {
+    removeItemAt(index) {
         console.log("passage methode removeItemAt");
         var removedItem = this.fancyList.splice(index, 1);
         console.log(this.fancyList);
-    },
+    }
 
-    method14 : function removeItemsAt(index, numberOfItems) {
+    removeItemsAt(index, numberOfItems) {
         console.log("passage methode removeItemAt 2args");
         var removedItem = this.fancyList.splice(index, numberOfItems);
         console.log(this.fancyList);
-    },
+    }
 
     //if there are dupliactes should remove 1st item found
-    method15 : function removeItem(itemToRemove) {
+    removeItem(itemToRemove) {
         console.log("passage methode removeItem");
         if(this.fancyList.includes(itemToRemove)) {
             this.fancyList.forEach(function(item, fancyList) {
@@ -107,18 +112,18 @@ var fancyList =  {
         } else {
             console.log("itemToRemove doesn't exist");
         }
-    },
+    }
 
-    method16 : function removeItems(...items) {
+    removeItems(...items) {
         console.log("passage methode removeItems rest parameter");
         items.forEach(function(item, items){
             removeItem(item);
         })
-    },
+    }
 
-    method17 : function removeItems([...items]) {
+    removeItems([...items]) {
         console.log("passage methode removeItems tab");
-    },
+    }
 
 }
 
